@@ -1,10 +1,11 @@
 let slider = document.getElementById("slider");
 let sliderPage = 0;
+let apiKey = "IcvHwuaZZxwGBTQF0z3zXAcI";
 slider.addEventListener("click", sliderClick);
 
 function apiSlider(){
 
-    fetch(`https://api.bestbuy.com/v1/products(releaseDate<=today)?apiKey=${apiKey}&format=json&show=sku,name,shortDescription,image,regularPrice,salePrice,releaseDate,type,customerReviewAverage&sort=releaseDate.dsc`)
+    fetch(`https://api.bestbuy.com/v1/products(releaseDate<=today)?apiKey=${apiKey}&format=json&show=sku,name,shortDescription,image,regularPrice,salePrice,releaseDate,type&pageSize=9&page=1,customerReviewAverage&sort=releaseDate.dsc`)
     .then((response) => {
         return response.json();
       })
