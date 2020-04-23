@@ -1,11 +1,14 @@
 let slider = document.getElementById("slider");
-let sliderPage = 0;
+let sliderPage = 2;
 let apiKey = "IcvHwuaZZxwGBTQF0z3zXAcI";
 slider.addEventListener("click", sliderClick);
+let currentSlider = [2, 1, 0];
+let sliderElementsJsonList;
+document.getElementById("sliderArrows").addEventListener("click", sliderArrowClick)
 
 function apiSlider(){
 
-    fetch(`https://api.bestbuy.com/v1/products(releaseDate<=today)?apiKey=${apiKey}&format=json&show=sku,name,shortDescription,image,regularPrice,salePrice,releaseDate,type&pageSize=9&page=1,customerReviewAverage&sort=releaseDate.dsc`)
+    fetch(`https://api.bestbuy.com/v1/products(releaseDate<=today)?apiKey=${apiKey}&format=json&show=sku,name,shortDescription,image,regularPrice,salePrice,releaseDate,type&pageSize=10&page=1,customerReviewAverage&sort=releaseDate.dsc`)
     .then((response) => {
         return response.json();
       })
@@ -14,7 +17,8 @@ function apiSlider(){
       }).then((productsLocal) => {
 
         //here we call functions that need argument product list
-        loadSlider(productsLocal.products);
+        sliderElementsJsonList = productsLocal.products;
+        loadSlider();
         return 0;
 
       }).catch(error => alert(error.toString()));
@@ -22,14 +26,15 @@ function apiSlider(){
     
     }
 
-function loadSlider(sliderProducts){
-    for(let i=0; i<9;i++){
-        if(i<3){
-        document.getElementById("slider").innerHTML += `<div class="sliderBox visibleSliderProduct"><img src="${sliderProducts[i].image}" class="sliderImage" /><div class="sliderClick" data-image-id="${i}"></div></div>`;
-        }else{
-            document.getElementById("slider").innerHTML += `<div class="sliderBox"><img src="${sliderProducts[i].image}" class="sliderImage" /><div class="sliderClick" data-image-id="${i}"></div></div>`;    
-        }   
-    }
+function loadSlider(){
+  let slider0 = document.getElementById("slider0");
+  let slider1 = document.getElementById("slider1");
+  let slider2 = document.getElementById("slider2");
+
+  slider0.getElementsByTagName("img")[0].src = sliderElementsJsonList[currentSlider[0]].image;
+  slider1.getElementsByTagName("img")[0].src = sliderElementsJsonList[currentSlider[1]].image;
+  slider2.getElementsByTagName("img")[0].src = sliderElementsJsonList[currentSlider[2]].image;
+ 
 }
 
 function sliderClick(){
@@ -43,45 +48,43 @@ function sliderDetails(x){
 }
 
 function nextSliderPage(){
-    let visibleSliderProduct = document.getElementsByClassName("sliderBox");
-    for(let i=0; i<visibleSliderProduct.length;i++){
-        if(visibleSliderProduct[i].classList.contains("visibleSliderProduct")){
-        visibleSliderProduct[i].classList.remove("visibleSliderProduct");
-        }
-    }
-    if(sliderPage<2){
-        sliderPage++;
+    sliderPage = currentSlider[0];
+    if(sliderPage<8){
+sliderPage++;
     }else{
-        sliderPage=0;
+sliderPage=0;
     }
-    for(let i=0; i<3;i++){
-        let count = sliderPage*3+i;
-        visibleSliderProduct[count].classList.add("visibleSliderProduct");
-    }
+
+    currentSlider.pop();
+    currentSlider.unshift(sliderPage);
+
+    loadSlider();
 
 }
 
 
 function previousSliderPage(){
-    let visibleSliderProduct = document.getElementsByClassName("sliderBox");
-    for(let i=0; i<visibleSliderProduct.length;i++){
-        if(visibleSliderProduct[i].classList.contains("visibleSliderProduct")){
-        visibleSliderProduct[i].classList.remove("visibleSliderProduct");
-        }
-    }
+    sliderPage = currentSlider[2];
     if(sliderPage>0){
         sliderPage--;
-    }else{
-        sliderPage=2;
-    }
-    for(let i=0; i<3;i++){
-        let count = sliderPage*3+i;
-        visibleSliderProduct[count].classList.add("visibleSliderProduct");
-    }
+            }else{
+        sliderPage=9;
+            }
+        
+            currentSlider.shift();
+            currentSlider.push(sliderPage);
+        
+
+            loadSlider();
 
 }
 
+function sliderArrowClick(){
+    if(event.target.textContent.toLowerCase().includes("left")){
+        nextSliderPage();
+    }else if(event.target.textContent.toLowerCase().includes("right")){
+        previousSliderPage();
+    }
+}
+
 apiSlider();
-
-
-
