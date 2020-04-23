@@ -4,5 +4,15 @@
 }
 
 #slider img{
-    max-height: 200px;
+    max-height: 300px;
+    border-radius: 25px;
+}
+
+.sliderPage{
+    display:flex;
+    justify-content: center;
+    min-width:200px;
+    min-height:200px;
+    border:solid 2px black;
+    border-radius: 25px;
 }

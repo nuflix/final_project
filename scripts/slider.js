@@ -4,7 +4,11 @@ let apiKey = "IcvHwuaZZxwGBTQF0z3zXAcI";
 slider.addEventListener("click", sliderClick);
 let currentSlider = [2, 1, 0];
 let sliderElementsJsonList;
-document.getElementById("sliderArrows").addEventListener("click", sliderArrowClick)
+let mouseOver = 0;
+document.getElementById("sliderArrows").addEventListener("click", sliderArrowClick);
+
+slider.addEventListener("mouseout", function(){mouseOver=0;});
+slider.addEventListener("mouseover", function(){mouseOver=1;});
 
 function apiSlider(){
 
@@ -19,6 +23,7 @@ function apiSlider(){
         //here we call functions that need argument product list
         sliderElementsJsonList = productsLocal.products;
         loadSlider();
+        setInterval(nextSliderPageInterval, 3000);
         return 0;
 
       }).catch(error => alert(error.toString()));
@@ -80,11 +85,19 @@ function previousSliderPage(){
 }
 
 function sliderArrowClick(){
-    if(event.target.textContent.toLowerCase().includes("left")){
+    if(event.target.id.toLowerCase().includes("left")){
         nextSliderPage();
-    }else if(event.target.textContent.toLowerCase().includes("right")){
+    }else if(event.target.id.toLowerCase().includes("right")){
         previousSliderPage();
     }
+}
+
+function nextSliderPageInterval(){
+
+    if(mouseOver===0){
+        nextSliderPage();
+    }
+
 }
 
 apiSlider();
