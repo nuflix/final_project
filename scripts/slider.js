@@ -9,6 +9,7 @@ document.getElementById("sliderArrows").addEventListener("click", sliderArrowCli
 
 slider.addEventListener("mouseout", function(){mouseOver=0;});
 slider.addEventListener("mouseover", function(){mouseOver=1;});
+slider.addEventListener("click", function(){mouseOver=1; if(event.target.classList.contains("sliderDetailsBtn")){ window.modalWindowShow(sliderElementsJsonList[event.target.dataset.id]); }});
 
 function apiSlider(){
 
@@ -28,7 +29,11 @@ function apiSlider(){
 
       }).catch(error => alert(error.toString()));
   
-    
+      for(let i=0; i<3; i++){
+      slider.getElementsByClassName("sliderDetailsBtn")[i].addEventListener("mouseover", function(){slider.getElementsByClassName("sliderDetailsBtn")[i].parentNode.parentNode.parentNode.getElementsByClassName("sliderPageLayer")[0].classList.add("sliderPageLayerHide")});
+      slider.getElementsByClassName("sliderDetailsBtn")[i].addEventListener("mouseout", function(){slider.getElementsByClassName("sliderDetailsBtn")[i].parentNode.parentNode.parentNode.getElementsByClassName("sliderPageLayer")[0].classList.remove("sliderPageLayerHide")});
+      }
+
     }
 
 function loadSlider(){
@@ -39,6 +44,14 @@ function loadSlider(){
   slider0.getElementsByTagName("img")[0].src = sliderElementsJsonList[currentSlider[0]].image;
   slider1.getElementsByTagName("img")[0].src = sliderElementsJsonList[currentSlider[1]].image;
   slider2.getElementsByTagName("img")[0].src = sliderElementsJsonList[currentSlider[2]].image;
+
+  slider0.getElementsByClassName("sliderPageTitle")[0].innerHTML = sliderElementsJsonList[currentSlider[0]].name;
+  slider1.getElementsByClassName("sliderPageTitle")[0].innerHTML = sliderElementsJsonList[currentSlider[1]].name;
+  slider2.getElementsByClassName("sliderPageTitle")[0].innerHTML = sliderElementsJsonList[currentSlider[2]].name;
+
+  slider0.getElementsByClassName("sliderDetailsBtn")[0].dataset.id = currentSlider[0];
+  slider1.getElementsByClassName("sliderDetailsBtn")[0].dataset.id = currentSlider[1];
+  slider2.getElementsByClassName("sliderDetailsBtn")[0].dataset.id = currentSlider[2];
  
 }
 
@@ -54,7 +67,7 @@ function sliderDetails(x){
 
 function nextSliderPage(){
     sliderPage = currentSlider[0];
-    if(sliderPage<8){
+    if(sliderPage<9){
 sliderPage++;
     }else{
 sliderPage=0;
