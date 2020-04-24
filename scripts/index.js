@@ -11,7 +11,7 @@ function api(){
 
 function modalWindowShow(productCharacteristics){
 document.getElementById("modalWindowContainer").classList.remove("invisible");
-document.getElementById("modalWindow").innerHTML = productCharacteristics.name;
+document.getElementById("modalWindowContent").innerHTML = productCharacteristics.name;
 }
 
 api();

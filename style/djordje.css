@@ -100,3 +100,11 @@ left:0;
     opacity: 0;
 
 }
+
+#modalWindowX{
+    padding:10px;
+    background-color: red;
+    color:white;
+    border-radius: 25px;
+    display:inline-block;
+}
