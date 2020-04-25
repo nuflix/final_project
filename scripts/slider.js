@@ -4,16 +4,34 @@ let apiKey = "IcvHwuaZZxwGBTQF0z3zXAcI";
 slider.addEventListener("click", sliderClick);
 let currentSlider = [2, 1, 0];
 let sliderElementsJsonList;
-let mouseOver = 0;
+let sliderMouseOver = 0;
 document.getElementById("sliderArrows").addEventListener("click", sliderArrowClick);
 
-slider.addEventListener("mouseout", function(){mouseOver=0;});
-slider.addEventListener("mouseover", function(){mouseOver=1;});
-slider.addEventListener("click", function(){mouseOver=1; if(event.target.classList.contains("sliderDetailsBtn")){ window.modalWindowShow(sliderElementsJsonList[event.target.dataset.id]); }});
+slider.addEventListener("mouseout", function(){sliderMouseOver=0;});
+slider.addEventListener("mouseover", function(){sliderMouseOver=1;});
+slider.addEventListener("click", function(){sliderMouseOver=1; if(event.target.classList.contains("sliderDetailsBtn")){ window.modalWindowShow(sliderElementsJsonList[event.target.dataset.id]); }});
+
+document.addEventListener("mouseover", function(){
+
+    if(event.target.id.toLowerCase().includes("slider") || event.target.id.toLowerCase().includes("modalwindow")){
+        sliderMouseOver=1;
+    }else{
+        if(event.target.classList.item(0)){
+            if(event.target.classList.item(0).toLowerCase().includes("slider")){
+                sliderMouseOver=1;
+            }else{
+                sliderMouseOver=0;
+            }
+        }else{
+            sliderMouseOver=0;
+        }
+    }
+
+});
 
 function apiSlider(){
 
-    fetch(`https://api.bestbuy.com/v1/products(releaseDate<=today)?apiKey=${apiKey}&format=json&show=sku,name,longDescription,shortDescription,image,regularPrice,salePrice,releaseDate,type&pageSize=10&page=1,customerReviewAverage&sort=releaseDate.dsc`)
+    fetch(`https://api.bestbuy.com/v1/products(releaseDate<=today)?apiKey=${apiKey}&format=json&show=sku,name,customerReviewAverage,customerReviewCount,regularPrice,salePrice,longDescription,shortDescription,image,regularPrice,salePrice,releaseDate,type&pageSize=10&page=1,customerReviewAverage&sort=releaseDate.dsc`)
     .then((response) => {
         return response.json();
       })
@@ -107,7 +125,9 @@ function sliderArrowClick(){
 
 function nextSliderPageInterval(){
 
-    if(mouseOver===0){
+    console.log(sliderMouseOver);
+
+    if(sliderMouseOver===0){
         nextSliderPage();
     }
 

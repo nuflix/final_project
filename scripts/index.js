@@ -1,3 +1,4 @@
+document.getElementById("modalWindowX").addEventListener("click", closeModalWindow);
 
 function api(){
     fetch('https://api.bestbuy.com/v1/products/8880044.json?show=sku,name,salePrice&apiKey=IcvHwuaZZxwGBTQF0z3zXAcI')
@@ -12,7 +13,18 @@ function api(){
 function modalWindowShow(productCharacteristics){
   console.log(productCharacteristics);
 document.getElementById("modalWindowContainer").classList.remove("invisible");
-document.getElementById("modalWindowContent").innerHTML = `<div>name: ${productCharacteristics.name}</div><div>description: ${productCharacteristics.longDescription}</div>`;
+let ratings = "";
+if(productCharacteristics.customerReviewCount>0){
+ratings = "Average rating: " + productCharacteristics.customerReviewAverage + " out of " + productCharacteristics.customerReviewCount + " ratings.";
+}else{
+ratings = "No ratings for this product." 
+}
+document.getElementById("modalWindowContent").innerHTML = `<div>name: ${productCharacteristics.name}</div><div>description: ${productCharacteristics.longDescription}</div><div>${ratings}</div>`;
+}
+
+function closeModalWindow(){
+  document.getElementById("modalWindowContainer").classList.add("invisible");  
+  window.sliderMouseOver = 0;
 }
 
 api();
