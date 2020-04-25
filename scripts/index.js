@@ -10,8 +10,9 @@ function api(){
 }
 
 function modalWindowShow(productCharacteristics){
+  console.log(productCharacteristics);
 document.getElementById("modalWindowContainer").classList.remove("invisible");
-document.getElementById("modalWindowContent").innerHTML = productCharacteristics.name;
+document.getElementById("modalWindowContent").innerHTML = `<div>name: ${productCharacteristics.name}</div><div>description: ${productCharacteristics.longDescription}</div>`;
 }
 
 api();

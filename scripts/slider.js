@@ -13,7 +13,7 @@ slider.addEventListener("click", function(){mouseOver=1; if(event.target.classLi
 
 function apiSlider(){
 
-    fetch(`https://api.bestbuy.com/v1/products(releaseDate<=today)?apiKey=${apiKey}&format=json&show=sku,name,shortDescription,image,regularPrice,salePrice,releaseDate,type&pageSize=10&page=1,customerReviewAverage&sort=releaseDate.dsc`)
+    fetch(`https://api.bestbuy.com/v1/products(releaseDate<=today)?apiKey=${apiKey}&format=json&show=sku,name,longDescription,shortDescription,image,regularPrice,salePrice,releaseDate,type&pageSize=10&page=1,customerReviewAverage&sort=releaseDate.dsc`)
     .then((response) => {
         return response.json();
       })
