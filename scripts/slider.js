@@ -17,7 +17,7 @@ document.addEventListener("mouseover", function(){
         sliderMouseOver=1;
     }else{
         if(event.target.classList.item(0)){
-            if(event.target.classList.item(0).toLowerCase().includes("slider")){
+            if(event.target.classList.item(0).toLowerCase().includes("slider") || event.target.classList.item(0).toLowerCase().includes("modalwindow")){
                 sliderMouseOver=1;
             }else{
                 sliderMouseOver=0;

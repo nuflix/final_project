@@ -1,5 +1,6 @@
 body{
-    background-color: cadetblue;
+    margin:0;
+    padding: 0;
 }
 
 .wholePageDarker{
@@ -23,4 +24,17 @@ body{
 
 .invisible{
     display: none;
+}
+
+#modalWindowX{
+    padding:10px;
+    background-color: orangered;
+    color:white;
+    border-radius: 25px;
+    display:inline-block;
+}
+
+.modalWindowImage{
+    max-height: 40vh;
+    max-width: 100%;
 }

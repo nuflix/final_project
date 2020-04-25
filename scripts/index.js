@@ -19,7 +19,7 @@ ratings = "Average rating: " + productCharacteristics.customerReviewAverage + " 
 }else{
 ratings = "No ratings for this product." 
 }
-document.getElementById("modalWindowContent").innerHTML = `<div>name: ${productCharacteristics.name}</div><div>description: ${productCharacteristics.longDescription}</div><div>${ratings}</div>`;
+document.getElementById("modalWindowContent").innerHTML = `<img class="modalWindowImage" src="${productCharacteristics.image}" /><div class="modalWindowString">name: ${productCharacteristics.name}</div><div class="modalWindowString">Release date: ${productCharacteristics.releaseDate}</div><div class="modalWindowString">description: ${productCharacteristics.longDescription}</div><div class="modalWindowString">${ratings}</div><div class="modalWindowString">Regular price: ${productCharacteristics.regularPrice}</div><div class="modalWindowString">Sale price: ${productCharacteristics.salePrice}</div>`;
 }
 
 function closeModalWindow(){
