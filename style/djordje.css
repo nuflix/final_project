@@ -101,3 +101,9 @@ left:0;
 
 }
 
+
+@media only screen and (max-width: 600px) {
+#slider0, #slider1{
+    display:none;
+}
+}
