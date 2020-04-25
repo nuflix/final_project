@@ -4,20 +4,24 @@
 }
 
 #slider img{
-    max-height: 300px;
+    max-height: 30vh;
+    max-width: 90vh;
+    min-height: 200px;
+    min-width: 200px;
    /*  border-radius: 25px; */
+   align-self: center;
     
 }
 
 .sliderPage{
     display:flex;
     justify-content: center;
-    min-width:200px;
-    min-height:200px;
     border:solid 2px orangered;
     border-radius: 25px;
     position: relative;
     overflow: hidden;
+    min-width: 200px;
+    min-height: 200px;
 }
 
 .sliderPageLayer{
