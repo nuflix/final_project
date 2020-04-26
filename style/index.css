@@ -1,3 +1,123 @@
+*{
+    margin: 0;
+    padding: 0;
+    text-decoration: none;
+    list-style: none;
+    box-sizing: border-box;
+}
 body{
-    background-color: rgb(4, 28, 29);
+    background-color: rgb(15, 188, 194);
+    font-family: "Times New Roman", Times, serif;
+}
+
+.navbar{
+    position: fixed;
+    width: 100%;
+    height: 80px;;
+    background-color:rgb(255, 136, 0);
+}   
+.navbar-order{
+    float: right;
+    margin-right: 3px;
+}
+.navbar-order li{
+    display: inline-block;
+    line-height: 70px;
+    margin: 0 5px;
+}
+.navbar-order li a{
+    color: rgb(90, 11, 11);
+    font-size: 20px;
+    text-transform: uppercase;
+    padding: 12px 9px;
+    border-radius: 6px;
+}
+
+label.logo{
+    color:rgb(44, 122, 116);
+    font-size: 40px;
+    line-height: 70px;
+    padding: 0 100px;
+    font-weight: bold
+
+    
+}
+a.item,a:hover{
+    background: rgb(228, 97, 97);
+    transition: 0.3s;
+}
+.cbtn{
+    font-size: 30px;
+    float: right;
+    color: rgb(29, 138, 138);
+    line-height: 70px;
+    margin-right: 35px;
+    cursor: pointer;
+    display: none;
+    transform: rotate(0deg);
+    transition: .3s
+    
+}
+ .navbar:hover .cbtn{ 
+        transform: rotate(540deg);
+}
+#check{
+    display: none; 
+
+}
+/* large device */
+@media(min-width:690px){
+    label.logo{
+        font-size: 25px;
+        padding-left: 25px;
+    }
+    .navbar-order li a{
+        font-size: 18px;
+    }
+
+}
+@media(min-width:860px){
+    label.logo{
+        font-size:40px;
+        padding-left: 35px;
+    }
+    .navbar-order li a{
+        font-size: 20px;
+    }
+
+
+}
+@media(max-width:690px){
+    .cbtn{
+        display: block;
+    }
+    .navbar-order{
+        background-color: rgb(255, 174, 24);
+        position: fixed;
+        height: 100vh;
+        width:50%;
+        right: -100%;
+        top:70px;
+        text-align: center;
+        transition: all 0.3s;
+    }
+    .navbar-order li{
+        display: block;
+        margin: 40px 0;
+        line-height: 10px;
+
+    }
+    .navbar-order li a{
+        font-size: 15px;
+    }
+    a.item,a:hover{
+        background:rgb(228, 97, 97);
+        
+
+    }
+    #check:checked~ .navbar-order{
+        right: -1%;
+      
+    }
+
 }
