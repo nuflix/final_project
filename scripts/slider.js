@@ -5,11 +5,14 @@ slider.addEventListener("click", sliderClick);
 let currentSlider = [2, 1, 0];
 let sliderElementsJsonList;
 let sliderMouseOver = 0;
+let sliderMouseOver2 = 0;
 document.getElementById("sliderArrows").addEventListener("click", sliderArrowClick);
 
-slider.addEventListener("mouseout", function(){sliderMouseOver=0;});
-slider.addEventListener("mouseover", function(){sliderMouseOver=1;});
+slider.addEventListener("mouseout", function(){sliderMouseOver=0; sliderMouseOver2=0;});
+slider.addEventListener("mouseover", function(){sliderMouseOver=1; sliderMouseOver2=1;});
 slider.addEventListener("click", function(){sliderMouseOver=1; if(event.target.classList.contains("sliderDetailsBtn")){ window.modalWindowShow(sliderElementsJsonList[event.target.dataset.id]); }});
+
+document.addEventListener("keydown", checkSliderMove);
 
 document.addEventListener("mouseover", function(){
 
@@ -125,12 +128,20 @@ function sliderArrowClick(){
 
 function nextSliderPageInterval(){
 
-    console.log(sliderMouseOver);
-
     if(sliderMouseOver===0){
         nextSliderPage();
     }
 
+}
+
+function checkSliderMove(){
+    if(sliderMouseOver2===1){
+        if(event.keyCode===39){
+            previousSliderPage();
+        }else if(event.keyCode===37){
+            nextSliderPage();
+        }
+    }
 }
 
 apiSlider();

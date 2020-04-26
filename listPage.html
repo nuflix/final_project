@@ -4,10 +4,33 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
+    <link rel="stylesheet" href="./style/djordje.css">
 </head>
-<body>
-    
-<div id="searchBox"></div>
+<body> 
+
+<div id="searchBar">
+<input type="text" id="searchText"/><div id="searchButton">Search!</div>
+</div>    
+
+<div id="searchBoxAllFilters">
+
+<div id="searchBoxFilters">
+
+<label>Search By: </label>
+<input type="radio" id="searchBoxRadioName" name="searchBoxRadio" class="searchBoxRadio" checked/><label for="searchBoxRadioName" class="searchBoxLabel">name</label>
+<input type="radio" id="searchBoxRadioDescription" name="searchBoxRadio" class="searchBoxRadio" /><label for="searchBoxRadioDescription" class="searchBoxLabel">Description</label>
+<input type="radio" id="searchBoxRadioFormat" name="searchBoxRadio" class="searchBoxRadio" /><label for="searchBoxRadioFormat" class="searchBoxLabel">Format</label>
+<div id="searchBoxRatingRangeDivAll"><div id="searchBoxRatingRangeDiv"><label>1</label><input type="range" value="1" min="1" max = "5" step="0.1" name="searchBoxRatingRange" id="searchBoxRatingRange"/><label>5</label></div><label id="currentRating">1</label></div>
+
+</div>
+
+<div id="searchBoxMoreFilters">
+    <div><input type="checkbox" name="moreFilters" id="searchBoxCheckOnSale" checked /><label for="searchBoxCheckOnSale">On sale</label></div>
+    <div><input type="checkbox" name="moreFilters" id="searchBoxCheckHomeDelivery" checked /><label for="searchBoxCheckHomeDelivery">Home delivery</label></div>
+    <div><input type="checkbox" name="moreFilters" id="searchBoxCheckFreeShipping" checked /><label for="searchBoxCheckFreeShipping">Free shipping</label></div>
+</div>
+
+</div>
 
 </body>
 </html>

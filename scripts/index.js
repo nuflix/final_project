@@ -11,7 +11,7 @@ function api(){
 }
 
 function modalWindowShow(productCharacteristics){
-  console.log(productCharacteristics);
+/*   console.log(productCharacteristics); */
 document.getElementById("modalWindowContainer").classList.remove("invisible");
 let ratings = "";
 if(productCharacteristics.customerReviewCount>0){
