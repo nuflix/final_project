@@ -127,3 +127,33 @@ left:0;
     display:none;
 }
 }
+
+
+/* 
+Here is css for listPage
+*/
+
+#searchButton{
+    display:inline-block;
+    background-color: #e95f2d;
+    border-radius:25px;
+    padding:10px 20px;
+}
+
+#searchButton:hover{
+    animation: searchButtonHover 1s;
+    animation-fill-mode: forwards;
+}
+
+#searchText{
+    border:1px solid orangered;
+}
+
+@keyframes searchButtonHover{
+    0%{
+    
+    }
+    100%{
+        background-color: orangered;
+    }
+    }
