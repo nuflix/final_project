@@ -94,6 +94,7 @@ left:0;
 
 #searchBoxFilters{
     display:flex;
+    flex-wrap: wrap;
     justify-content: center;
 }
 
@@ -147,6 +148,10 @@ Here is css for listPage
 
 #searchText{
     border:1px solid orangered;
+}
+
+.selPageBtn{
+    color:red;
 }
 
 @keyframes searchButtonHover{
