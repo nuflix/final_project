@@ -1,6 +1,6 @@
 document.getElementById("modalWindowX").addEventListener("click", closeModalWindow);
 
-function api(){
+/* function api(){
     fetch('https://api.bestbuy.com/v1/products/8880044.json?show=sku,name,salePrice&apiKey=IcvHwuaZZxwGBTQF0z3zXAcI')
     .then((response) => {
       return response.json();
@@ -8,10 +8,10 @@ function api(){
     .then((data) => {
       document.getElementById("content").innerHTML=data.name;
     });
-}
+} */
 
 function modalWindowShow(productCharacteristics){
-/*   console.log(productCharacteristics); */
+  /* console.log(productCharacteristics); */ 
 document.getElementById("modalWindowContainer").classList.remove("invisible");
 let ratings = "";
 if(productCharacteristics.customerReviewCount>0){
@@ -27,4 +27,4 @@ function closeModalWindow(){
   window.sliderMouseOver = 0;
 }
 
-api();
+/* api(); */

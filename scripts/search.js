@@ -1,6 +1,7 @@
-document.getElementById("searchButton").addEventListener("click", function(){ apiSearch(filters()) });
+document.getElementById("searchButton").addEventListener("click", function(){ searchPage=1; apiSearch(filters()); });
 document.getElementById("pageList").addEventListener("click", pageChange);
-document.getElementById("searchBoxRatingRange").addEventListener("change", rangeMouseUp)
+document.getElementById("searchBoxRatingRange").addEventListener("change", rangeMouseUp);
+document.getElementById("main").addEventListener("click", detailsClick);
 let searchAllProducts = [];
 let searchByName="";
 let apiKey = "IcvHwuaZZxwGBTQF0z3zXAcI";
@@ -10,8 +11,8 @@ let searchPage = 1;
 function apiSearch(x){
 
 searchByName=document.getElementById("searchText").value;
-let fetchUrl = `https://api.bestbuy.com/v1/products(releaseDate<=today&customerReviewAverage>=${x.grade}&${x.searchType}="${searchByName}*"&type="${x.type}"${x.onSale}${x.homeDelivery})?apiKey=${apiKey}&format=json&show=sku,name,customerReviewAverage,customerReviewCount,regularPrice,salePrice,longDescription,shortDescription,image,regularPrice,salePrice,releaseDate,type&pageSize=9&page=${x.page}${x.onSale}${x.homeDelivery},totalPages,customerReviewAverage&sort=releaseDate.dsc`;
-console.log(fetchUrl);    
+let fetchUrl = `https://api.bestbuy.com/v1/products(releaseDate<=today&customerReviewAverage>=${x.grade}&${x.searchType}="${searchByName}*"&type="${x.type}"${x.onSale}${x.homeDelivery})?apiKey=${apiKey}&format=json&show=sku,name,customerReviewAverage,customerReviewCount,regularPrice,salePrice,longDescription,shortDescription,image,regularPrice,salePrice,releaseDate,type&pageSize=6&page=${x.page}${x.onSale}${x.homeDelivery},totalPages,customerReviewAverage&sort=releaseDate.dsc`;
+/* console.log(fetchUrl);  */   
 fetch(fetchUrl)
     .then((response) => {
         return response.json();
@@ -32,9 +33,22 @@ fetch(fetchUrl)
 
     function search(x, pageParam){
       document.getElementById("main").innerHTML="";
+     /*  console.log(x.products); */
       for(let i=0; i<x.products.length; i++){
-        document.getElementById("main").innerHTML += `<br>
-        ${i}: ${x.products[i].name}
+        document.getElementById("main").innerHTML += `
+        <div class="list-product"> 
+        <img src="${x.products[i].image}" class="list-product-image" />
+        <div class="product-container">
+        <h4 class="list-product-name">${x.products[i].name} </h4>
+        <div class="list-product-regularPrice">${x.products[i].regularPrice}</div>
+        <div class="list-product-salePrice">${x.products[i].salePrice}</div>
+        <div class="list-product-rate">${x.products[i].customerReviewAverage} </div>
+        <div class="list-product-rate-count">${x.products[i].customerReviewCount} </div>
+        <div class="list-product-description">${x.products[i].longDescription} </div>
+        <div class="list-product-releaseDate">${x.products[i].releaseDate} </div>
+        <div class="sliderDetailsBtn listBtn">Details</div>
+        </div>
+        </div>
         `;
       }
 
@@ -122,4 +136,19 @@ fetch(fetchUrl)
       document.getElementById("currentRating").innerHTML=document.getElementById("searchBoxRatingRange").value;
       searchPage=1;
       apiSearch(filters());
+    }
+
+    function detailsClick(){
+      if(event.target.classList.contains("sliderDetailsBtn")){
+      let name=event.target.parentNode.getElementsByClassName("list-product-name")[0].textContent;
+      let longDescription=event.target.parentNode.getElementsByClassName("list-product-description")[0].textContent;
+      let image=event.target.parentNode.parentNode.getElementsByClassName("list-product-image")[0].src;
+      let regularPrice=event.target.parentNode.getElementsByClassName("list-product-regularPrice")[0].textContent;
+      let salePrice=event.target.parentNode.getElementsByClassName("list-product-salePrice")[0].textContent;
+      let releaseDate=event.target.parentNode.getElementsByClassName("list-product-releaseDate")[0].textContent;
+      let customerReviewAverage=event.target.parentNode.getElementsByClassName("list-product-rate")[0].textContent;
+      let customerReviewCount=event.target.parentNode.getElementsByClassName("list-product-rate-count")[0].textContent;
+      let details = `{"name":"${name}", "longDescription":"${longDescription}", "image":"${image}", "regularPrice":"${regularPrice}", "salePrice":"${salePrice}", "releaseDate":"${releaseDate}", "customerReviewCount":"${customerReviewCount}", "customerReviewAverage":"${customerReviewAverage}"}`;
+      window.modalWindowShow(JSON.parse(details));
+      }
     }

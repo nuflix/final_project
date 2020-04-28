@@ -162,3 +162,51 @@ Here is css for listPage
         background-color: orangered;
     }
     }
+
+.list-products{
+    width:100%;
+    display:flex;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
+.list-product{
+    flex:0 40%;
+   /*  padding:20px; */
+    display: flex;
+    flex-wrap: nowrap;
+    border: 2px solid orangered;
+    margin:5px;
+    box-sizing: border-box;
+    border-radius: 25px;
+    overflow: hidden;
+}
+
+.list-product-image{
+    max-width:50%;
+    
+}
+
+.list-product-description{
+    display:none;
+}
+
+.product-container{
+    padding:20px;
+}
+
+
+
+#main{
+    width:70%;
+}
+
+.listBtn{
+    margin-top:15px;
+}
+
+@media screen and (max-width: 1280px) {
+    .list-product{
+        flex:0 80%;
+    }
+}
