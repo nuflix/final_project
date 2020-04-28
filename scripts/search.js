@@ -1,6 +1,6 @@
 document.getElementById("searchButton").addEventListener("click", function(){ apiSearch(filters()) });
 document.getElementById("pageList").addEventListener("click", pageChange);
-document.getElementById("searchBoxRatingRange").addEventListener("mouseup", rangeMouseUp)
+document.getElementById("searchBoxRatingRange").addEventListener("change", rangeMouseUp)
 let searchAllProducts = [];
 let searchByName="";
 let apiKey = "IcvHwuaZZxwGBTQF0z3zXAcI";
