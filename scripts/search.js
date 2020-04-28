@@ -1,5 +1,6 @@
-document.getElementById("searchButton").addEventListener("click", function(){ apiSearch(JSON.parse(`{"page":"1"}`)) });
+document.getElementById("searchButton").addEventListener("click", function(){ apiSearch(filters()) });
 document.getElementById("pageList").addEventListener("click", pageChange);
+document.getElementById("searchBoxRatingRange").addEventListener("mouseup", rangeMouseUp)
 let searchAllProducts = [];
 let searchByName="";
 let apiKey = "IcvHwuaZZxwGBTQF0z3zXAcI";
@@ -9,8 +10,9 @@ let searchPage = 1;
 function apiSearch(x){
 
 searchByName=document.getElementById("searchText").value;
-
-    fetch(`https://api.bestbuy.com/v1/products(releaseDate<=today&name=\"${searchByName}*\")?apiKey=${apiKey}&format=json&show=sku,name,customerReviewAverage,customerReviewCount,regularPrice,salePrice,longDescription,shortDescription,image,regularPrice,salePrice,releaseDate,type&pageSize=9&page=${x.page},totalPages,customerReviewAverage&sort=releaseDate.dsc`)
+let fetchUrl = `https://api.bestbuy.com/v1/products(releaseDate<=today&customerReviewAverage>=${x.grade}&${x.searchType}="${searchByName}*"&type="${x.type}"${x.onSale}${x.homeDelivery})?apiKey=${apiKey}&format=json&show=sku,name,customerReviewAverage,customerReviewCount,regularPrice,salePrice,longDescription,shortDescription,image,regularPrice,salePrice,releaseDate,type&pageSize=9&page=${x.page}${x.onSale}${x.homeDelivery},totalPages,customerReviewAverage&sort=releaseDate.dsc`;
+console.log(fetchUrl);    
+fetch(fetchUrl)
     .then((response) => {
         return response.json();
       })
@@ -32,7 +34,7 @@ searchByName=document.getElementById("searchText").value;
       document.getElementById("main").innerHTML="";
       for(let i=0; i<x.products.length; i++){
         document.getElementById("main").innerHTML += `<br>
-        ${i}${x.products[i].name}
+        ${i}: ${x.products[i].name}
         `;
       }
 
@@ -80,8 +82,44 @@ searchByName=document.getElementById("searchText").value;
           }
 
 
-          apiSearch(JSON.parse(`{"page":"${searchPage}"}`));
+          apiSearch(filters());
 
       }
     }
+    }
+
+
+    function filters(){
+      let onSale="";
+      let homeDelivery="";
+      let searchType="name";
+      let grade="1";
+      let type="";
+
+      if(document.getElementById("searchBoxCheckOnSale").checked===true){
+      onSale=`&onSale=true`;
+      }
+
+      if(document.getElementById("searchBoxCheckHomeDelivery").checked===true){
+      homeDelivery=`&homeDelivery=true`;
+      }
+
+      if(document.getElementById("searchBoxRadioDescription").checked){
+        searchType="longDescription";
+      }else if(document.getElementById("searchBoxRadioFormat").checked){
+        searchType="format";
+      }else{
+        searchType="name";
+      }
+
+      type=document.getElementById("productTypeSelectSearch").value;
+      grade = document.getElementById("currentRating").innerHTML;
+
+      return JSON.parse(`{"page":"${searchPage}", "onSale":"${onSale}", "homeDelivery":"${homeDelivery}", "searchType":"${searchType}", "grade":"${grade}", "type":"${type}"}`);
+    }
+
+    function rangeMouseUp(){
+      document.getElementById("currentRating").innerHTML=document.getElementById("searchBoxRatingRange").value;
+      searchPage=1;
+      apiSearch(filters());
     }
