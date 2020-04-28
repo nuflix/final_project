@@ -225,4 +225,7 @@ Here is css for listPage
     .list-product-image{
         padding-top: 15px;
     }
+    #main{
+        width:95%;
+    }
 }
