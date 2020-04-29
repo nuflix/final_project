@@ -46,6 +46,7 @@ fetch(fetchUrl)
         <div class="list-product-rate-count">${x.products[i].customerReviewCount} </div>
         <div class="list-product-description">${x.products[i].longDescription} </div>
         <div class="list-product-releaseDate">${x.products[i].releaseDate} </div>
+        <div class="invisible sku">${x.products[i].sku} </div>
         <div class="sliderDetailsBtn listBtn">Details</div>
         </div>
         </div>
@@ -148,7 +149,8 @@ fetch(fetchUrl)
       let releaseDate=event.target.parentNode.getElementsByClassName("list-product-releaseDate")[0].textContent;
       let customerReviewAverage=event.target.parentNode.getElementsByClassName("list-product-rate")[0].textContent;
       let customerReviewCount=event.target.parentNode.getElementsByClassName("list-product-rate-count")[0].textContent;
-      let details = `{"name":"${name}", "longDescription":"${longDescription}", "image":"${image}", "regularPrice":"${regularPrice}", "salePrice":"${salePrice}", "releaseDate":"${releaseDate}", "customerReviewCount":"${customerReviewCount}", "customerReviewAverage":"${customerReviewAverage}"}`;
+      let sku = event.target.parentNode.getElementsByClassName("sku")[0].textContent;
+      let details = `{"name":"${name}", "longDescription":"${longDescription}", "image":"${image}", "regularPrice":"${regularPrice}", "salePrice":"${salePrice}", "releaseDate":"${releaseDate}", "customerReviewCount":"${customerReviewCount}", "customerReviewAverage":"${customerReviewAverage}", "sku":"${sku}"}`;
       window.modalWindowShow(JSON.parse(details));
       }
     }

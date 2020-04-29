@@ -19,7 +19,7 @@ ratings = "Average rating: " + productCharacteristics.customerReviewAverage + " 
 }else{
 ratings = "No ratings for this product." 
 }
-document.getElementById("modalWindowContent").innerHTML = `<img class="modalWindowImage" src="${productCharacteristics.image}" /><div class="modalWindowString">name: ${productCharacteristics.name}</div><div class="modalWindowString">Release date: ${productCharacteristics.releaseDate}</div><div class="modalWindowString">${ratings}</div><div class="modalWindowString">Regular price: ${productCharacteristics.regularPrice}</div><div class="modalWindowString">Sale price: ${productCharacteristics.salePrice}</div><div><div class="buyBtn">Buy!</div><div class="sliderDetailsBtn addToFavBtn">Add to favorites</div></div><div class="modalWindowString">description: ${productCharacteristics.longDescription}</div>`;
+document.getElementById("modalWindowContent").innerHTML = `<img class="modalWindowImage" src="${productCharacteristics.image}" /><div class="modalWindowString">name: ${productCharacteristics.name}</div><div class="modalWindowString">Release date: ${productCharacteristics.releaseDate}</div><div class="modalWindowString">${ratings}</div><div class="modalWindowString">Regular price: ${productCharacteristics.regularPrice}</div><div class="modalWindowString">Sale price: ${productCharacteristics.salePrice}</div><div><div class="buyBtn">Buy!</div><div class="sliderDetailsBtn addToFavBtn">Add to favorites</div></div><div class="modalWindowString">description: ${productCharacteristics.longDescription}</div><div id="sku" class="invisible">${productCharacteristics.sku}</div>`;
 }
 
 function closeModalWindow(){
