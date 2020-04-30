@@ -38,7 +38,7 @@ function addToFavorites(){
     localStorage.setItem("favorites", JSON.stringify(arr));
   }else{
     let arr = JSON.parse(localStorage.getItem("favorites"));
-    console.log(arr);
+    /* console.log(arr); */
     if(arr.includes(sku)){
     alert("Item already in favorites");
     }else{
