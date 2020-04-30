@@ -1,9 +1,9 @@
 var footer = document.getElementById("footer");
 var current_footer_id="footer_home";
 
-footer.addEventListener("click",OpenInNewWindow);
+footer.addEventListener("click", OpenInNewWindow);
 
-OpenInNewWindow(e)
+function OpenInNewWindow(e)
 {
     var footer_id = e.target.getAttribute("id");
 
