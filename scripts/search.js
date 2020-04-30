@@ -46,7 +46,7 @@ fetch(fetchUrl)
         <div class="list-product-rate-count">${x.products[i].customerReviewCount} </div>
         <div class="list-product-description">${x.products[i].longDescription} </div>
         <div class="list-product-releaseDate">${x.products[i].releaseDate} </div>
-        <div class="invisible sku">${x.products[i].sku} </div>
+        <div class="invisible sku">${x.products[i].sku}</div>
         <div class="sliderDetailsBtn listBtn">Details</div>
         </div>
         </div>
