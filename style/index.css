@@ -27,6 +27,10 @@ body{
     display: none;
 }
 
+div > div.invisible{
+    display: none;
+}
+
 #modalWindowX{
     padding:10px;
     background-color: orangered;

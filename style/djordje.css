@@ -215,6 +215,9 @@ Here is css for listPage
     padding:20px;
 }
 
+.product-container div{
+display:inline-block;
+}
 
 
 #main{

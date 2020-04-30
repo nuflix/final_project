@@ -6,7 +6,7 @@ document.getElementById("content").addEventListener("click", removeFav);
 
 function loadFavApi(i){
     
-    fetch(`https://api.bestbuy.com/v1/products/${arr[i]}.json?show=sku,image,name,salePrice&apiKey=IcvHwuaZZxwGBTQF0z3zXAcI`)
+    fetch(`https://api.bestbuy.com/v1/products/${arr[i]}.json?show=sku,image,name,regularPrice,releaseDate,longDescription,customerReviewAverage,customerReviewCount,salePrice&apiKey=IcvHwuaZZxwGBTQF0z3zXAcI`)
     .then((response) => {
       return response.json();
     })

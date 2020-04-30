@@ -39,13 +39,13 @@ fetch(fetchUrl)
         <div class="list-product"> 
         <img src="${x.products[i].image}" class="list-product-image" />
         <div class="product-container">
-        <h4 class="list-product-name">${x.products[i].name} </h4>
-        <div class="list-product-regularPrice">Regular price: ${x.products[i].regularPrice}$</div>
-        <div class="list-product-salePrice">Sale price: ${x.products[i].salePrice}$</div>
-        <div class="list-product-rate">Rate: ${x.products[i].customerReviewAverage}</div>
-        <div class="list-product-rate-count">Customers rated: ${x.products[i].customerReviewCount}</div>
-        <div class="list-product-releaseDate">Release date: ${x.products[i].releaseDate}</div>
-        <div class="list-product-description">Description: ${x.products[i].longDescription}</div>
+        <h4 class="list-product-name">${x.products[i].name}</h4>
+        <div>Regular price: &nbsp;</div><div class="list-product-regularPrice">${x.products[i].regularPrice}</div><div>$</div><br>
+        <div>Sale price: &nbsp;</div><div class="list-product-salePrice">${x.products[i].salePrice}</div><div>$</div><br>
+        <div>Rate: &nbsp;</div><div class="list-product-rate">${x.products[i].customerReviewAverage}</div><br>
+        <div>Customers rated: &nbsp;</div><div class="list-product-rate-count">${x.products[i].customerReviewCount}</div><br>
+        <div>Release date:&nbsp; </div><div class="list-product-releaseDate">${x.products[i].releaseDate}</div><br>
+        <div>Description:&nbsp; </div><div class="list-product-description">${x.products[i].longDescription}</div><br>
         <div class="invisible sku">${x.products[i].sku}</div>
         <div class="sliderDetailsBtn listBtn">Details</div>
         </div>

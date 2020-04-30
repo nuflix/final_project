@@ -2,7 +2,7 @@ let topRatedPage = 1;
 document.getElementById("topRatedContent").addEventListener("click", detailsTopRated);
 document.getElementById("loadMore").addEventListener("click", nextTopRatedSection1);
 function apiTopRated(x){
-    fetch(`https://api.bestbuy.com/v1/products(customerReviewCount>=100)?format=json&show=sku,image,name,customerReviewAverage,customerReviewCount,regularPrice,longDescription,salePrice&pageSize=3&page=${x}&sort=customerReviewAverage.desc&apiKey=IcvHwuaZZxwGBTQF0z3zXAcI`)
+    fetch(`https://api.bestbuy.com/v1/products(customerReviewCount>=100)?format=json&show=sku,image,name,customerReviewAverage,customerReviewCount,regularPrice,releaseDate,longDescription,salePrice&pageSize=3&page=${x}&sort=customerReviewAverage.desc&apiKey=IcvHwuaZZxwGBTQF0z3zXAcI`)
     .then((response) => {
       return response.json();
     })
