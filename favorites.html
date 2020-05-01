@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="./style/djordje.css">
+    <link rel="stylesheet" href="./style/index.css">
+    <link rel="stylesheet" type="text/css" href="./style/footer.css">
+</head>
+<body>
+    
+    <nav class="navbar">
+        <input type="checkbox" id="check">
+        <label for="check" class="cbtn"><i class="fas fa-angle-double-left"></i>
+        </label>
+        <label class="logo">Products <i class="fas fa-video"></i></label>
+        <ul class="navbar-order">
+           
+               <li class="item"> <a href="./index.html" >Home</a> </li>
+               <li class="item"><a href="./listPage.html" >List</a></li>      
+               <li class="item" id="trap"><a href="./favorites.html" >Favorites</a></li>
+               <li class="item"><a href="./about/about.html" >About Us</a></li>   
+      
+           </ul>
+    </nav>  
+
+    <div id="content">
+        <div id="topRatedContent">
+
+        </div>
+    </div>
+
+    <footer>
+        <div id="footer">
+           
+          <button id="footer_home" class="footer_links"> Home </button>
+          <button id="footer_list" class="footer_links"> List </button>
+          <button id="footer_custom_page" class="footer_links"> Custom Page </button>
+          <button id="footer_about_us" class="footer_links"> About Us </button>
+      
+         </div>
+        </footer>
+
+    <div class="wholePageDarker invisible" id="modalWindowContainer">
+        <div id="modalWindow">
+            
+            <div id="modalWindowX">x</div>
+            <div id="modalWindowContent"></div>
+        
+        </div>
+    </div>
+
+    <script src="./scripts/index.js"></script>
+    <script src="./scripts/favorites.js"></script>
+    <script src="./scripts/footer.js"></script>
+</body>
+</html>

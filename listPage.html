@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="./style/djordje.css">
+    <link rel="stylesheet" href="./style/index.css">
+    <link rel="stylesheet" type="text/css" href="./style/footer.css">
+
+</head>
+<body> 
+
+    <nav class="navbar">
+        <input type="checkbox" id="check">
+        <label for="check" class="cbtn"><i class="fas fa-angle-double-left"></i>
+        </label>
+        <label class="logo">Products <i class="fas fa-video"></i></label>
+        <ul class="navbar-order">
+           
+               <li class="item"> <a href="./index.html" >Home</a> </li>
+               <li class="item" id="trap"><a href="./listPage.html" >List</a></li>      
+               <li class="item"><a href="./favorites.html" >Favorites</a></li>
+               <li class="item"><a href="./about/about.html" >About Us</a></li>
+               
+              
+               
+      
+           </ul>
+    </nav>  
+<div id="content">
+<div id="searchBar">
+<input type="text" id="searchText"/><select id="productTypeSelectSearch"><option value="*" selected>All</option><option value="Movie">Movies</option><option value="Software">Software</option><option value="Music">Music</option><option value="Game">Games</option></select><div id="searchButton">Search!</div>
+</div>    
+
+<div id="searchBoxAllFilters">
+
+<div id="searchBoxFilters">
+
+<label>Search By: </label>
+<input type="radio" id="searchBoxRadioName" name="searchBoxRadio" class="searchBoxRadio" checked/><label for="searchBoxRadioName" class="searchBoxLabel">name</label>
+<input type="radio" id="searchBoxRadioDescription" name="searchBoxRadio" class="searchBoxRadio" /><label for="searchBoxRadioDescription" class="searchBoxLabel">Description</label>
+<input type="radio" id="searchBoxRadioFormat" name="searchBoxRadio" class="searchBoxRadio" /><label for="searchBoxRadioFormat" class="searchBoxLabel">Format</label>
+<div id="searchBoxRatingRangeDivAll"><div id="searchBoxRatingRangeDiv"><label>1</label><input type="range" value="1" min="1" max = "5" step="0.1" name="searchBoxRatingRange" id="searchBoxRatingRange"/><label>5</label></div><label id="currentRating">1</label></div>
+
+</div>
+
+<div id="searchBoxMoreFilters">
+    <div><input type="checkbox" name="moreFilters" id="searchBoxCheckOnSale" /><label for="searchBoxCheckOnSale">On sale</label></div>
+    <div><input type="checkbox" name="moreFilters" id="searchBoxCheckHomeDelivery" /><label for="searchBoxCheckHomeDelivery">Home delivery</label></div>
+    <div><input type="checkbox" name="moreFilters" id="searchBoxCheckFreeShipping" /><label for="searchBoxCheckFreeShipping">Free shipping</label></div>
+</div>
+
+</div>
+
+<div class="verticalCenter">
+<div id="main" class="list-products">
+
+</div>
+</div>
+
+<div id="pageList"></div>
+</div>
+
+<footer>
+    <div id="footer">
+       
+      <button id="footer_home" class="footer_links"> Home </button>
+      <button id="footer_list" class="footer_links"> List </button>
+      <button id="footer_custom_page" class="footer_links"> Custom Page </button>
+      <button id="footer_about_us" class="footer_links"> About Us </button>
+  
+     </div>
+    </footer>
+
+<div class="wholePageDarker invisible" id="modalWindowContainer">
+    <div id="modalWindow">
+        
+        <div id="modalWindowX">x</div>
+        <div id="modalWindowContent"></div>
+    
+    </div>
+</div>
+
+<script src="./scripts/index.js"></script>
+<script src="./scripts/search.js"></script>
+<script src="./scripts/footer.js"></script>
+
+</body>
+</html>

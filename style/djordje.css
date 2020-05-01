@@ -1,0 +1,461 @@
+#slider{
+    display:flex;
+    justify-content: space-evenly;
+    position: relative;
+    width:70%;
+}
+
+#slider img{
+    max-height: 30vh;
+    max-width: 90vh;
+    min-height: 200px;
+    min-width: 200px;
+   /*  border-radius: 25px; */
+   align-self: center;
+    
+}
+
+.sliderPage{
+    display:flex;
+    justify-content: center;
+    border:solid 2px orangered;
+    border-radius: 25px;
+    position: relative;
+    overflow: hidden;
+    min-width: 200px;
+    min-height: 200px;
+    margin:5px;
+}
+
+.sliderPageLayer{
+    position: absolute;
+    z-index: 99;
+    top:0;
+    left:0;
+    width:100%;
+    height:100%;
+    background-color: black;
+    /* border-radius: 25px; */
+    opacity: 0.4;
+}
+
+.sliderPageLayer:hover{
+opacity: 0;
+}
+
+.sliderPageInvisibleLayer{
+    position: absolute;
+    display:flex;
+    flex-direction: column;
+    justify-content: center;
+    top:0;
+    left:0;
+    width: 100%;
+    height: 100%;
+}
+
+.sliderPageTitle{
+    z-index: 98;
+    align-self: center;
+    justify-self: center;
+    color:white;
+    text-align: center;
+    background-color: rgba(0,0,0,0.6);
+}
+
+.sliderDetails{
+display:flex;
+position: absolute;
+justify-content: center;
+align-items: center;
+width:100%;
+bottom: 0;
+left:0;
+}
+
+.sliderDetailsBtn{
+    display:inline-block;
+    padding:10px 25px;
+    color:white;
+    background-color: #e95f2d;
+    border-radius: 25px;
+    margin-bottom: 10px;
+    z-index: 200;
+    cursor: pointer;
+
+    -webkit-touch-callout: none; /* iOS Safari */
+    -webkit-user-select: none; /* Safari */
+     -khtml-user-select: none; /* Konqueror HTML */
+       -moz-user-select: none; /* Old versions of Firefox */
+        -ms-user-select: none; /* Internet Explorer/Edge */
+            user-select: none; /* Non-prefixed version, currently
+                                  supported by Chrome, Opera and Firefox */
+}
+
+#searchBoxRatingRangeDivAll{
+    display:flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+#searchBoxRatingRangeDiv{
+    display:flex;
+    justify-content: center;
+}
+
+#searchBoxFilters{
+    display:flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    margin-top:30px;
+}
+
+.sliderDetailsBtn:hover{
+   
+    color:white;
+    animation: sliderDetailsBtnHover;
+    animation-duration: 1s;
+    animation-fill-mode: forwards;
+
+}
+
+@keyframes sliderDetailsBtnHover{
+0%{
+
+}
+100%{
+    background-color: orangered;
+}
+}
+
+.sliderPageLayerHide{
+   
+    opacity: 0;
+
+}
+
+
+@media only screen and (max-width: 680px) {
+#slider0, #slider1{
+    display:none;
+}
+}
+
+
+/* 
+Here is css for listPage
+*/
+
+#searchButton{
+    display:inline-block;
+    background-color: #e95f2d;
+
+    padding:10px 20px;
+
+    cursor: pointer;
+
+    -webkit-touch-callout: none; /* iOS Safari */
+    -webkit-user-select: none; /* Safari */
+     -khtml-user-select: none; /* Konqueror HTML */
+       -moz-user-select: none; /* Old versions of Firefox */
+        -ms-user-select: none; /* Internet Explorer/Edge */
+            user-select: none; /* Non-prefixed version, currently
+                                  supported by Chrome, Opera and Firefox */
+}
+
+#searchButton:hover{
+    animation: searchButtonHover 1s;
+    animation-fill-mode: forwards;
+}
+
+#searchText{
+    border:1px solid orangered;
+    flex-grow: 2;
+    max-width:400px;
+}
+
+
+@keyframes searchButtonHover{
+    0%{
+    
+    }
+    100%{
+        background-color: orangered;
+    }
+    }
+
+.list-products{
+    width:100%;
+    display:flex;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
+.list-product{
+    flex:0 40%;
+   /*  padding:20px; */
+    display: flex;
+    flex-wrap: nowrap;
+    border: 2px solid orangered;
+    margin:5px;
+    box-sizing: border-box;
+    border-radius: 25px;
+    overflow: hidden;
+}
+
+.list-product-image{
+    max-width:50%;
+}
+
+.list-product-description{
+    display:none;
+}
+
+.product-container{
+    padding:20px;
+}
+
+.product-container div{
+display:inline-block;
+}
+
+
+#main{
+    width:70%;
+}
+
+.listBtn{
+    margin-top:15px;
+}
+
+.verticalCenter{
+    width:100%;
+    display: flex;
+    justify-content: center;
+}
+
+@media screen and (max-width: 1280px) {
+    .list-product{
+        flex:0 80%;
+    }
+}
+
+
+@media screen and (max-width: 1280px) {
+    .list-product{
+        flex-direction: column;
+        align-items: center;
+    }
+    .list-product-image{
+        padding-top: 15px;
+    }
+    #main{
+        width:95%;
+    }
+    #slider{
+        width:100%;
+    }
+}
+
+#searchBar{
+    display:flex;
+    justify-content: center;
+    width:100%;
+}
+
+#searchBar *{
+    margin:2px;
+}
+
+#pageList{
+display:flex;
+justify-content: center;
+margin:20px;
+}
+
+.pageBtn{
+    padding:5px;
+    background-color: rgb(226, 99, 53);
+    color:white;
+    margin:3px;
+
+    cursor: pointer;
+
+    -webkit-touch-callout: none; /* iOS Safari */
+    -webkit-user-select: none; /* Safari */
+     -khtml-user-select: none; /* Konqueror HTML */
+       -moz-user-select: none; /* Old versions of Firefox */
+        -ms-user-select: none; /* Internet Explorer/Edge */
+            user-select: none; /* Non-prefixed version, currently
+                                  supported by Chrome, Opera and Firefox */
+}
+
+.selPageBtn{
+    background-color: orangered;
+}
+
+#sliderArrows{
+    position: absolute;
+    top:0;
+    left: 0;
+    width:100%;
+    height:100%;
+    display:flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.sliderArrow{
+    display:inline-block;
+    color:white;
+    background-color: orangered;
+    padding:15px;
+    border-radius: 20px;
+    font-weight: 900;
+    font-size: large;
+    z-index:998;
+}
+
+
+#sliderContentBox{
+    display:flex;
+    justify-content: center;
+}
+
+.sliderForTopRated{
+    display:flex;
+    justify-content: space-evenly;
+    position: relative;
+    width:70%;
+}
+
+#content{
+    min-height:85vh;
+    margin-top:80px;
+}
+
+.sliderForTopRated img{
+    
+     max-width: 100%; 
+
+   /*  border-radius: 25px; */
+    
+}
+
+.topRatedFooter{
+    justify-self: flex-end;
+}
+
+.sliderPageForTopRated{
+    display:flex;
+    justify-content: center;
+    align-items: center;
+    border:solid 2px orangered;
+    border-radius: 25px 25px 0 0;
+    position: relative;
+    overflow: hidden;
+    min-width: 200px;
+    min-height: 200px;
+    flex-grow: 2;
+    max-height: 30vh;
+}
+
+.topRatedSection{
+    display:flex;
+    flex-direction: column;
+    margin:10px;
+    min-height: 100%;
+}
+
+.topRatedFooter{
+    display:flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding:5px;
+    border-top:none;
+    border-left: solid 2px orangered;
+    border-right: solid 2px orangered;
+    border-bottom: solid 2px orangered;
+    border-radius: 0 0 25px 25px;
+    background-color: rgb(236, 236, 236);
+}
+
+.topRatedPrice{
+    margin-bottom: 10px;
+}
+
+.buyBtn{
+    background-color: rgb(4, 139, 4);
+    color:white;
+    display:inline-block;
+    padding: 10px;
+    border-radius: 25px;
+    margin:10px 5px;
+
+    cursor: pointer;
+
+    -webkit-touch-callout: none; /* iOS Safari */
+    -webkit-user-select: none; /* Safari */
+     -khtml-user-select: none; /* Konqueror HTML */
+       -moz-user-select: none; /* Old versions of Firefox */
+        -ms-user-select: none; /* Internet Explorer/Edge */
+            user-select: none; /* Non-prefixed version, currently
+                                  supported by Chrome, Opera and Firefox */
+}
+
+.buyBtn:hover{
+    animation: buyBtnHover 1s;
+    animation-fill-mode: forwards;
+}
+
+@keyframes buyBtnHover{
+    0%{
+
+    }100%{
+        background-color: rgb(2, 189, 2);
+    }
+}
+
+.addToFavBtn{
+    display:inline-block;
+    margin:10px 5px;
+}
+
+@media screen and (max-width: 1280px) {
+    .sliderForTopRated{
+        width:100%;
+    }
+    }
+
+@media screen and (max-width: 680px) {
+    .sliderForTopRated{
+        flex-direction: column;
+        align-content: center;
+        justify-content: space-between;
+        
+    }
+    .topRatedSection{
+        margin:20px;
+        flex-direction: column;
+        
+    }
+
+}
+
+@media screen and (max-width: 480px) {
+    .sliderForTopRated{
+        flex-wrap: nowrap;
+    }
+
+}
+
+#topRatedContent{
+    display:flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.hiddenJsonForDetails{
+    display:none;
+}
