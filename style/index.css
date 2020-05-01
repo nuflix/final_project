@@ -1,3 +1,10 @@
+*{
+    margin: 0;
+    padding: 0;
+    text-decoration: none;
+    list-style: none;
+    box-sizing: border-box;
+}
 body{
     margin:0;
     padding: 0;
@@ -14,6 +21,24 @@ body{
     display:flex;
     align-items: center;
     justify-content: center;
+}
+
+#contentTopRatedAndSideBar{
+    display:flex;
+}
+
+#content{
+    margin-top:80px;
+}
+
+.topRatedH2{
+    text-align: center;
+}
+
+.centerLoadMore{
+    display:flex;
+    flex-direction: column;
+    align-items: center;
 }
 
 #modalWindow{
@@ -55,4 +80,191 @@ div > div.invisible{
 .modalWindowImage{
     max-height: 40vh;
     max-width: 100%;
+
+    background-color: rgb(15, 188, 194);
+    font-family: "Times New Roman", Times, serif;
 }
+
+.navbar{
+    position: fixed;
+    width: 100%;
+    height: 80px;
+    top:0;
+    left:0;
+    background-color:rgb(255, 136, 0);
+    z-index:9999;
+}   
+.navbar-order{
+    float: right;
+    margin-right: 3px;
+}
+.navbar-order li{
+    display: inline-block;
+    line-height: 70px;
+    margin: 0 5px;
+}
+.navbar-order li a{
+    color: rgb(90, 11, 11);
+    font-size: 20px;
+    text-transform: uppercase;
+    padding: 12px 9px;
+    border-radius: 6px;
+}
+
+label.logo{
+    color:rgb(44, 122, 116);
+    font-size: 40px;
+    line-height: 70px;
+    padding: 0 100px;
+    font-weight: bold
+
+    
+}
+a.item,a:hover{
+    background: rgb(228, 97, 97);
+    transition: 0.3s;
+}
+.cbtn{
+    font-size: 30px;
+    float: right;
+    color: rgb(29, 138, 138);
+    line-height: 70px;
+    margin-right: 35px;
+    cursor: pointer;
+    display: none;
+  
+}
+ 
+#check{
+    display: none; 
+
+}
+#trap{
+    background-color:white;
+    border-radius: 12px;
+    position: relative;
+    margin-top: 4px;
+    
+}
+.best-sidebars{
+   
+    display:none;
+}
+.invisible{
+    display: none;
+}
+/* large device */
+@media screen and (min-width:690px){
+    label.logo{
+        font-size: 25px;
+        padding-left: 25px;
+    }
+    .navbar-order li a{
+        font-size: 18px;
+    }
+    .best-sidebars{
+        display: block;
+        padding-top: 7rem;
+    }
+    .best-sidebar-item{
+        text-align: center;
+        background-color: rgb(218, 214, 214);
+        border-radius: 20px;
+        box-shadow: 0 4px 6px 0 black;
+        max-width: 200px;
+        line-height: 4rem;
+        display: list-item;
+
+    }
+    .sidebar-title{
+        font-size: 20px;
+        color: darkblue;
+
+    }
+    .image{
+        max-width: 200px;
+        max-height: auto;
+        padding-top: 10px;
+    }
+    .price{
+        font-size: 30px;
+        background-color: rgb(1, 121, 1);
+     border-radius: 30px;
+     color: white;
+     animation: shadow-pulse 1s infinite;
+    }
+    @keyframes shadow-pulse {
+        0%{
+            box-shadow: 0 0 0 0px rgba(6, 247, 6, 0.815);
+            transform: scale(1);
+        }70%{
+            box-shadow: 0 0 0 35px rgba(53, 233, 53, 0.1);
+            transform: scale(1);
+
+        }100%{
+            box-shadow: 0 0 0 35px rgba(95, 151, 95, 0);
+            transform: scale(1);
+
+        }
+
+        
+    }
+}
+@media screen and (min-width:860px){
+    label.logo{
+        font-size:40px;
+        padding-left: 35px;
+    }
+    .navbar-order li a{
+        font-size: 20px;
+    }
+
+
+}
+/* small device*/
+@media screen and (max-width:690px){
+    .cbtn{
+        display: block;
+        transform: rotate(0deg);
+        transition: 0.3s
+    }
+    .navbar:hover .cbtn{ 
+        transform: rotate(540deg);
+        
+    }
+    .navbar-order{
+        background-color: rgb(255, 174, 24);
+        position: fixed;
+        height: 100vh;
+        width:50%;
+        right: -100%;
+        top:70px;
+        text-align: center;
+        transition: all 0.3s;
+    }
+    .navbar-order li{
+        display: block;
+        margin: 40px 0;
+        line-height: 10px;
+
+    }
+    .navbar-order li a{
+        font-size: 15px;
+    }
+    a.item,a:hover{
+        background:rgb(228, 97, 97);
+        
+
+    }
+    #check:checked~ .navbar-order{
+        right: -1%;
+        margin-top: 8px;
+    }
+label.logo{
+    font-size: 25px;
+    padding-left: 10px;
+}
+
+
+}
+

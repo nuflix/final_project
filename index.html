@@ -3,11 +3,34 @@
 <head>
     <meta charstet="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Home page</title>
     <link rel="stylesheet" href="./style/index.css">
     <link rel="stylesheet" href="./style/djordje.css">
 </head>
 <body>
+
+</head>
+<body>
+    
+     <nav class="navbar">
+         <input type="checkbox" id="check">
+         <label for="check" class="cbtn"><i class="fas fa-angle-double-left"></i>
+         </label>
+         <label class="logo">Products <i class="fas fa-video"></i></label>
+         <ul class="navbar-order">
+            
+                <li class="item" id="trap"> <a href="./index.html" >Home</a> </li>
+                <li class="item"><a href="./listPage.html" >List</a></li>      
+                <li class="item"><a href="./favorites.html" >Favorites</a></li>
+                <li class="item"><a href="./about/about.html" >About Us</a></li>
+                
+               
+                
+       
+            </ul>
+     </nav>  
+   
+     <div id="content">
     
     <div id="sliderContentBox">
     <div id="slider">
@@ -18,15 +41,44 @@
     </div>
     </div>
     
-
-    <div id="content">
-            <h2>Top Rated</h2>
+<br><br>
+    
+            <h2 class="topRatedH2">Top Rated</h2>
             
+            <div id="contentTopRatedAndSideBar">
+                <div class="centerLoadMore">
             <div id="topRatedContent">
             
             </div>
+            <div id="loadMore" class="sliderDetailsBtn">Load more</div>
+        </div>
+            <div>
+                <div id="best-bars" class="best-sidebars">
+                    <div class="best-sidebar-item">
+                        <div class="sidebar-title"></div>
+                        <img class="image"  src="" alt="">
+                        <div class="price"></div>
+                        <div class="invisible"></div>
+                        
+                    </div>
+                    <div class="best-sidebar-item">
+                            <div class="sidebar-title"></div>
+                            <img class="image" src="" alt="">
+                            <div class="price"></div>
+                            <div class="invisible"></div>
+                    </div>
+                    <div class="best-sidebar-item">
+                            <div class="sidebar-title"></div>
+                            <img  class="image" src="" alt="">
+                            <div class="price"></div>
+                            <div class="invisible"></div>
+                    </div>
+                </div>
+            </div>
+        
+            </div>
 
-<div id="loadMore" class="sliderDetailsBtn">Load more</div>
+
     </div>
 
 <div class="wholePageDarker invisible" id="modalWindowContainer">
@@ -41,5 +93,8 @@
     <script src="./scripts/index.js"></script>
     <script src="./scripts/slider.js"></script>
     <script src="./scripts/topRated.js"></script>
+    <script src="./scripts/indexSideBar.js"></script>
+    <script src="https://kit.fontawesome.com/47ff87a5ee.js" crossorigin="anonymous"></script>
+   
 </body>
 </html>

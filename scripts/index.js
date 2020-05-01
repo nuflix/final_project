@@ -1,6 +1,10 @@
 document.getElementById("modalWindowX").addEventListener("click", closeModalWindow);
 
+
 /* function api(){
+
+
+function api(){
     fetch('https://api.bestbuy.com/v1/products/8880044.json?show=sku,name,salePrice&apiKey=IcvHwuaZZxwGBTQF0z3zXAcI')
     .then((response) => {
       return response.json();
@@ -49,3 +53,9 @@ function addToFavorites(){
 }
 
 /* api(); */
+  
+
+
+
+
+

@@ -10,6 +10,24 @@
 </head>
 <body> 
 
+    <nav class="navbar">
+        <input type="checkbox" id="check">
+        <label for="check" class="cbtn"><i class="fas fa-angle-double-left"></i>
+        </label>
+        <label class="logo">Products <i class="fas fa-video"></i></label>
+        <ul class="navbar-order">
+           
+               <li class="item"> <a href="./index.html" >Home</a> </li>
+               <li class="item" id="trap"><a href="./listPage.html" >List</a></li>      
+               <li class="item"><a href="./favorites.html" >Favorites</a></li>
+               <li class="item"><a href="./about/about.html" >About Us</a></li>
+               
+              
+               
+      
+           </ul>
+    </nav>  
+<div id="content">
 <div id="searchBar">
 <input type="text" id="searchText"/><select id="productTypeSelectSearch"><option value="*" selected>All</option><option value="Movie">Movies</option><option value="Software">Software</option><option value="Music">Music</option><option value="Game">Games</option></select><div id="searchButton">Search!</div>
 </div>    
@@ -41,7 +59,7 @@
 </div>
 
 <div id="pageList"></div>
-
+</div>
 
 <div class="wholePageDarker invisible" id="modalWindowContainer">
     <div id="modalWindow">

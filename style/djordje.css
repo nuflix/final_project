@@ -330,10 +330,8 @@ margin:20px;
 }
 
 #content{
-    display:flex;
-    flex-direction: column;
-    align-items: center;
-    margin-top:20px;
+
+    margin-top:80px;
 }
 
 .sliderForTopRated img{
