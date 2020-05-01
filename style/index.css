@@ -54,19 +54,29 @@ a.item,a:hover{
     margin-right: 35px;
     cursor: pointer;
     display: none;
-    transform: rotate(0deg);
-    transition: .3s
-    
+  
 }
- .navbar:hover .cbtn{ 
-        transform: rotate(540deg);
-}
+ 
 #check{
     display: none; 
 
 }
+#trap{
+    background-color:white;
+    border-radius: 12px;
+    position: relative;
+    margin-top: 4px;
+    
+}
+.best-sidebars{
+   
+    display:none;
+}
+.invisible{
+    display: none;
+}
 /* large device */
-@media(min-width:690px){
+@media screen and (min-width:690px){
     label.logo{
         font-size: 25px;
         padding-left: 25px;
@@ -74,9 +84,55 @@ a.item,a:hover{
     .navbar-order li a{
         font-size: 18px;
     }
+    .best-sidebars{
+        display: block;
+        padding-top: 7rem;
+    }
+    .best-sidebar-item{
+        text-align: center;
+        background-color: rgb(218, 214, 214);
+        border-radius: 20px;
+        box-shadow: 0 4px 6px 0 black;
+        max-width: 200px;
+        line-height: 4rem;
+        display: list-item;
 
+    }
+    .sidebar-title{
+        font-size: 20px;
+        color: darkblue;
+
+    }
+    .image{
+        max-width: 200px;
+        max-height: auto;
+        padding-top: 10px;
+    }
+    .price{
+        font-size: 30px;
+        background-color: rgb(1, 121, 1);
+     border-radius: 30px;
+     color: white;
+     animation: shadow-pulse 1s infinite;
+    }
+    @keyframes shadow-pulse {
+        0%{
+            box-shadow: 0 0 0 0px rgba(6, 247, 6, 0.815);
+            transform: scale(1);
+        }70%{
+            box-shadow: 0 0 0 35px rgba(53, 233, 53, 0.1);
+            transform: scale(1);
+
+        }100%{
+            box-shadow: 0 0 0 35px rgba(95, 151, 95, 0);
+            transform: scale(1);
+
+        }
+
+        
+    }
 }
-@media(min-width:860px){
+@media screen and (min-width:860px){
     label.logo{
         font-size:40px;
         padding-left: 35px;
@@ -87,9 +143,16 @@ a.item,a:hover{
 
 
 }
-@media(max-width:690px){
+/* small device*/
+@media screen and (max-width:690px){
     .cbtn{
         display: block;
+        transform: rotate(0deg);
+        transition: 0.3s
+    }
+    .navbar:hover .cbtn{ 
+        transform: rotate(540deg);
+        
     }
     .navbar-order{
         background-color: rgb(255, 174, 24);
@@ -117,7 +180,13 @@ a.item,a:hover{
     }
     #check:checked~ .navbar-order{
         right: -1%;
-      
+        margin-top: 8px;
     }
+label.logo{
+    font-size: 25px;
+    padding-left: 10px;
+}
+
 
 }
+
